@@ -1,0 +1,25 @@
+\documentclass[]{article}
+\usepackage[english, magyar]{babel}
+\usepackage{t1enc}
+\usepackage{lipsum}
+\usepackage{hulipsum}
+\usepackage{blindtext}
+\usepackage{setspace}
+\begin{document}
+\title{Book of the Unknown}
+\author{Jeremy Hilton}
+\maketitle
+\selectlanguage {english}
+\frenchspacing
+\bigskip
+\lipsum[1]\\
+
+{\raggedleft{\noindent{\hulipsum[1]\\}}}
+\begin{doublespace}
+\blindtext[1]\\
+\end{doublespace}
+
+
+\today
+\footnote{Ez itt a lábjegyzék}
+\end{document}
