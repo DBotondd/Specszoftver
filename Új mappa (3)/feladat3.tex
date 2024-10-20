@@ -1,0 +1,185 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{hulipsum}
+\usepackage{hyperref}
+
+% Csomagok a táblázatokhoz
+\usepackage{longtable}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+% Színek definiálása a listings csomaghoz
+\lstset{
+  basicstyle=\ttfamily,
+  keywordstyle=\color{red},
+  commentstyle=\color{gray},
+  stringstyle=\color{blue},
+  tabsize=2,
+  frame=single,
+  breaklines=true,
+  numbers=left,
+  numbersep=10pt,
+  numberstyle=\tiny\color{black},
+}
+
+% Új float környezetek Python és C kódhoz
+\floatstyle{ruled}
+\newfloat{PythonCode}{H}{pyc}[section]
+\floatname{PythonCode}{Python kód}
+
+\newfloat{CCode}{H}{cc}[section]
+\floatname{CCode}{C kód}
+
+\begin{document}
+
+\title{Speciális szoftverek - Ábrák, Táblázatok és Programkódok}
+\author{Vadon Viktória}
+\date{2023/24/I. félév}
+\maketitle
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\section{Ábrák}
+
+\subsection{Kép beillesztése szövegbe}
+Először egy kép beillesztése szöveg közé torzítás nélkül. Az alábbiakban látható egy példa:
+
+\hulipsum[1]
+
+\begin{wrapfigure}{l}{5cm}
+    \includegraphics[width=5cm,height=5cm,keepaspectratio]{example-image}
+\end{wrapfigure}
+
+\hulipsum[2]
+
+\subsection{Úszó ábra}
+Most egy úszó ábrát illesztünk be.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5cm]{example-image}
+    \caption{Példa kép úszó ábrában}
+    \label{fig:float1}
+\end{figure}
+
+Megfigyelhetjük, hogy az ábra megfelelően van elhelyezve.
+
+\subsection{Transzformált kép}
+Most beillesztünk egy transzformált képet az előző ábra környezetbe:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5cm,angle=90]{example-image}
+    \caption{Tükrözött kép}
+    \label{fig:transformed}
+\end{figure}
+
+Mindkét ábrának saját felirata van, és megfigyelhetjük, hogy több felirat is megadható.
+
+\subsection{Részábrák}
+Készítünk egy részábra környezetet, amelyben két képet helyezünk el egymás mellett:
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{example-image}
+        \caption{Első kép}
+        \label{fig:sub1}
+    \end{subfigure}
+    \hspace{1cm}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth, angle=90]{example-image}
+        \caption{Második kép}
+        \label{fig:sub2}
+    \end{subfigure}
+    \caption{Részábrák elrendezése}
+    \label{fig:main_figure}
+\end{figure}
+
+\section{Táblázatok}
+
+\subsection{Egyszerű táblázat}
+Az első táblázatot az alábbiak szerint készítjük el:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|p{30pt}|l|c|r|}
+        \hline
+        \textbf{Oszlop 1} & \textbf{Balra} & \textbf{Középre} & \textbf{Jobbra} \\
+        \hline
+        Cell 1 & Cell 2 & Cell 3 & Cell 4 \\
+        \hline
+        Cell 5 & Cell 6 & Cell 7 & \\
+        \hline
+        \multirow{2}{*}{Cell 8} & Cell 9 & Cell 10 & Cell 11 \\
+        \cline{2-4}
+        & Cell 12 & Cell 13 & Cell 14 \\
+        \hline
+    \end{tabular}
+    \caption{Első táblázat}
+    \label{tab:table1}
+\end{table}
+
+\subsection{Színes táblázatok}
+Az alábbi táblázat sorainak színezését mutatja be:
+
+\begin{table}[h]
+    \centering
+    \rowcolors{2}{gray!25}{white}
+    \begin{tabular}{|l|c|r|}
+        \hline
+        Balra & Középre & Jobbra \\
+        \hline
+        Tartalom 1 & Tartalom 2 & Tartalom 3 \\
+        Tartalom 4 & Tartalom 5 & Tartalom 6 \\
+        Tartalom 7 & Tartalom 8 & Tartalom 9 \\
+        \hline
+    \end{tabular}
+    \caption{Váltakozó színes sorokkal}
+    \label{tab:color_table}
+\end{table}
+
+\section{Verbatim}
+
+\subsection{Inline verbatim példa}
+Egy példa inline \texttt{verbatim} használatra: Az \verb|\textbf| parancs vastag betűt eredményez.
+
+\subsection{Verbatim környezet példa}
+
+\begin{verbatim}
+\begin{enumerate}
+    \item Első elem
+    \item Második elem
+    \item Harmadik elem
+\end{enumerate}
+\end{verbatim}
+
+\section{Programkód 1: Python}
+
+\begin{PythonCode}
+    \caption{Példa Python kód}
+    \label{lst:python_example}
+    \lstinputlisting[language=Python]{example.py}
+\end{PythonCode}
+
+\section{Programkód 2: C}
+
+\begin{CCode}
+    \caption{Példa C kód függvénnyel}
+    \label{lst:c_example}
+    \lstinputlisting[language=C]{example.c}
+\end{CCode}
+
+\end{document}

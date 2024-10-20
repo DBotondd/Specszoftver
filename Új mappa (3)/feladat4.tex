@@ -1,0 +1,186 @@
+\documentclass[a4paper,12pt]{article}
+% Szükséges csomagok
+\usepackage{amsthm}
+\usepackage{amsmath, mathtools}
+\usepackage{amsfonts, amssymb}
+\usepackage{hyperref}
+\usepackage{thmtools}
+
+% a) Tételkörnyezet definiálása
+\newtheorem{theorem}{Tétel}
+\newtheorem{lemma}[theorem]{Lemma}
+
+% d) Definíció környezet definiálása, section-önként számozva
+\newtheorem{definition}{Definíció}[section]
+
+\begin{document}
+
+\title{Matematikai Tételek és Formulák}
+\author{Feladatmegoldás}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+
+\section{Bevezetés a Tételkörnyezetekbe}
+
+% Első tétel
+\begin{theorem}
+Ez az első tételünk, ami demonstrálja a tételkörnyezet használatát.
+\end{theorem}
+
+% Második tétel névvel/szerzővel
+\begin{theorem}[Példa Tétel, Szerző: Gauss]
+Ez a második tétel, névvel és szerzővel ellátva.
+\end{theorem}
+
+% Lemma
+\begin{lemma}\label{lemma:1}
+Ez egy lemma, amely a tételekkel együtt van sorszámozva.
+\end{lemma}
+
+% Tétel bizonyítása
+\begin{proof}
+Ez a tétel bizonyítása, ami a tételhez tartozik.
+\end{proof}
+
+% Lemma bizonyítása, kereszthivatkozás a Lemmára
+\begin{proof}[A Lemma bizonyítása]
+Ez a bizonyítás a \ref{lemma:1}. Lemmára hivatkozik.
+\end{proof}
+
+\section{Matematikai Definíciók}
+
+% Első definíció
+\begin{definition}
+Ez az első definíció az első szakaszban.
+\end{definition}
+
+% Második definíció
+\begin{definition}
+Ez a második definíció az első szakaszban.
+\end{definition}
+
+\section{További Matematikai Definíciók}
+
+% Harmadik definíció a második szakaszban
+\begin{definition}
+Ez egy definíció a második szakaszban.
+\end{definition}
+
+\section{Matematikai Formulák A-tól Z-ig}
+
+% a) Például egy inline formula
+Az \( a^2 + b^2 = c^2 \) egy Pitagorasz-tételként ismert formula.
+
+% b) Többsoros formulák és igazítások
+\begin{align}
+    f(x) &= x^2 + 2x + 1 \\
+    g(x) &= x^2 - 3x + 2
+\end{align}
+
+% c) Sigma szimbólum használata
+A \(\sigma\) szórás jelentésében fontos szerepet játszik a statisztikában.
+
+% d) Kézírásos nagy I betű használata
+Az \(\mathcal{I}\) az intervallum jelölésére szolgál.
+
+\section{További Matematikai Formulák}
+
+% a) Az 1/n^2 sorösszege
+Az \( \frac{1}{n^2} \) sorösszege a következőképpen alakul:
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}.
+\]
+
+% b) Faktoriális definíció
+Az \( n! \) (n faktoriális) a számok szorzata 1-től \( n \)-ig, azaz:
+\[
+n! := \prod_{k=1}^{n} k = 1 \cdot 2 \cdot \dots \cdot n. \tag{1}
+\]
+Konvenció szerint \( 0! = 1 \).
+
+% c) Binomiális együttható
+Legyen \( 0 \leq k \leq n \). A binomiális együttható a következőképpen definiálható:
+\[
+\binom{n}{k} := \frac{n!}{k! \cdot (n - k)!},
+\]
+ahol a faktoriálist az (1) szerint definiáljuk.
+
+% d) Szignum függvény
+Az előjel- vagy szignumfüggvényt a következőképpen definiáljuk:
+\[
+\text{sgn}(x) :=
+\begin{cases}
+    1, & \text{ha } x > 0, \\
+    0, & \text{ha } x = 0, \\
+   -1, & \text{ha } x < 0.
+\end{cases}
+\]
+
+\section{Logikai Azonosságok}
+
+Tekintsük az \( L = \{0, 1\} \) halmazt, ahol \( a, b, c, d \in L \). Az alábbiakban belátjuk a következő logikai azonosságot:
+
+\[
+(a \land b) \land (c \land d) = a \land (b \land (c \land d)).
+\]
+
+Ez az azonosság az asszociativitás törvényére épül. A következő táblázatban bemutatjuk a logikai műveleteket.
+
+\subsection{Logikai Műveletek Táblázata}
+
+A logikai műveletek táblázata a következőképpen alakul:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\( a \) & \( b \) & \( a \land b \) & \( a \lor b \) \\ \hline
+0 & 0 & 0 & 0 \\ \hline
+0 & 1 & 0 & 1 \\ \hline
+1 & 0 & 0 & 1 \\ \hline
+1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\caption{Logikai műveletek táblázata: AND (\(\land\)) és OR (\(\lor\))}
+\end{table}
+
+\subsection{Az azonosság levezetése}
+
+1. **Alapállítás**:
+   \[
+   (a \land b) \land (c \land d).
+   \]
+
+2. **Alkalmazzuk az asszociatív törvényt**:
+   \[
+   = a \land (b \land (c \land d)).
+   \]
+
+3. **Megmutatjuk a kommutativitás törvényét**:
+   \[
+   a \land b = b \land a \quad \text{és} \quad a \lor b = b \lor a.
+   \]
+
+4. **Alkalmazzuk a kommutativitás törvényét**:
+   \[
+   a \land (b \land c) = (a \land b) \land c.
+   \]
+
+5. **Végül kifejtjük**:
+   \[
+   (a \land b) \land (c \land d) = a \land (b \land (c \land d)).
+   \]
+
+\subsection{Összegzés}
+
+A fenti levezetés alapján beláttuk, hogy:
+
+\[
+(a \land b) \land (c \land d) = a \land (b \land (c \land d)).
+\]
+
+Ez a logikai azonosság az asszociatív törvényre épít, amely lehetővé teszi a kifejezések átcsoportosítását. A kommutativitás törvénye tovább erősíti ezt az azonosságot.
+
+\end{document}
